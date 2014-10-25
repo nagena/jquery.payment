@@ -19,21 +19,22 @@ if (!valid) {
 }
 ```
 
-You can find a full [demo here](http://stripe.github.io/jquery.payment/example).
-
 Supported card types are:
 
 * Visa
-* MasterCard
+* Master
 * American Express
-* Diners Club
-* Discover
-* UnionPay
-* JCB
-* Visa Electron
-* Maestro
-* Forbrugsforeningen
-* Dankort
+* Diners
+* Naranja Visa
+* Naranja Master
+* Nativa
+* Tarshop
+* Cencosud
+* Cabal
+* Argencard
+* Hipercard
+* Elo
+* Melicard
 
 ## API
 
@@ -140,17 +141,19 @@ $.payment.validateCardCVC('12344'); //=> false
 
 Returns a card type. Either:
 
+* `naranja`
+* `nativa`
+* `tarshop`
+* `cencosud`
+* `cabal`
+* `argencard`
+* `diners`
+* `hipercard`
+* `elo`
+* `melicard`
 * `visa`
-* `mastercard`
+* `master`
 * `amex`
-* `dinersclub`
-* `discover`
-* `unionpay`
-* `jcb`
-* `visaelectron`
-* `maestro`
-* `forbrugsforeningen`
-* `dankort`
 
 The function will return `null` if the card type can't be determined.
 
@@ -171,10 +174,6 @@ $('input.cc-exp').payment('cardExpiryVal') //=> {month: 4, year: 2020}
 ```
 
 This function doesn't perform any validation of the month or year; use `$.payment.validateCardExpiry(month, year)` for that.
-
-## Example
-
-Look in [`./example/index.html`](example/index.html)
 
 ## Building
 
