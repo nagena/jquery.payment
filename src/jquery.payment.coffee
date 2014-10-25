@@ -12,92 +12,123 @@ cards = [
   # Debit cards must come first, since they have more
   # specific patterns than their credit-card equivalents.
   {
-      type: 'visaelectron'
-      pattern: /^4(026|17500|405|508|844|91[37])/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
+      type: 'naranja',
+      pattern: /^((402917)|(402918)|(527571)|(527572))/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
       luhn: true
   }
   {
-      type: 'maestro'
-      pattern: /^(5(018|0[23]|[68])|6(39|7))/
-      format: defaultFormat
-      length: [12..19]
-      cvcLength: [3]
+      type: 'naranja',
+      pattern: /^(589562)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
       luhn: true
   }
   {
-      type: 'forbrugsforeningen'
-      pattern: /^600/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
+      type: 'nativa',
+      pattern: /^(546553)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
       luhn: true
   }
   {
-      type: 'dankort'
-      pattern: /^5019/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
-      luhn: true
-  }
-  # Credit cards
-  {
-      type: 'visa'
-      pattern: /^4/
-      format: defaultFormat
-      length: [13, 16]
-      cvcLength: [3]
+      type: 'tarshop',
+      pattern: /^(603488)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
       luhn: true
   }
   {
-      type: 'mastercard'
-      pattern: /^5[0-5]/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
-      luhn: true
-  }
-  {
-      type: 'amex'
-      pattern: /^3[47]/
-      format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/
-      length: [15]
-      cvcLength: [3..4]
-      luhn: true
-  }
-  {
-      type: 'dinersclub'
-      pattern: /^3[0689]/
-      format: defaultFormat
-      length: [14]
-      cvcLength: [3]
-      luhn: true
-  }
-  {
-      type: 'discover'
-      pattern: /^6([045]|22)/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
-      luhn: true
-  }
-  {
-      type: 'unionpay'
-      pattern: /^(62|88)/
-      format: defaultFormat
-      length: [16..19]
-      cvcLength: [3]
+      type: 'tarshop',
+      pattern: /^(27995)/,
+      format: defaultFormat,
+      length: [13],
+      cvcLength: [0],
       luhn: false
+  } 
+  {
+      type: 'cencosud',
+      pattern: /^(603493)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  } 
+  {
+      type: 'cabal',
+      pattern: /^((627170)|(589657)|(603522)|(604((20[1-9])|(2[1-9][0-9])|(3[0-9]{2})|(400))))/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  } 
+  {
+      type: 'argencard',
+      pattern: /^(501105)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
   }
   {
-      type: 'jcb'
-      pattern: /^35/
-      format: defaultFormat
-      length: [16]
-      cvcLength: [3]
+      type: 'diners',
+      pattern: /^(36)/,
+      format: defaultFormat,
+      length: [14],
+      cvcLength: [3],
+      luhn: true
+  }
+  {
+      type: 'hipercard',
+      pattern: /^(606282)/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  }
+  {
+      type: 'elo',
+      pattern: /^((636368)|(438935)|(506726)|(457631)|(401178)|(506727)|(506742)|(506741)|(506778)|(457632)|(506744)|(636297)|(627780))/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  }
+  {
+      type: 'melicard',
+      pattern: /^((530032)|(522499))/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  }   
+  {
+      type: 'visa',
+      pattern: /^4/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  } 
+  {
+      type: 'master',
+      pattern: /^5/,
+      format: defaultFormat,
+      length: [16],
+      cvcLength: [3],
+      luhn: true
+  } 
+  {
+      type: 'amex',
+      pattern: /^3/,
+      format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
+      length: [15],
+      cvcLength: [4],
       luhn: true
   }
 ]
