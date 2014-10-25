@@ -5,7 +5,7 @@ global.jQuery = $
 global.window = window
 global.document = window.document
 
-require('../src/jquery.payment')
+require('../lib/jquery.payment')
 
 describe 'jquery.payment', ->
   describe 'Validating a card number', ->
@@ -46,13 +46,26 @@ describe 'jquery.payment', ->
       assert.equal topic, false
 
     it 'should validate for all card types', ->
-      assert($.payment.validateCardNumber('4917300800000000'), 'visaelectron')
+      assert($.payment.validateCardNumber('4029174173871700'), 'naranja')
+      assert($.payment.validateCardNumber('4029188823230745'), 'naranja')
+      assert($.payment.validateCardNumber('5275718605203862'), 'naranja')
+      assert($.payment.validateCardNumber('5275720847313376'), 'naranja')
+      assert($.payment.validateCardNumber('5895625366531656'), 'naranja')
 
-      assert($.payment.validateCardNumber('6759649826438453'), 'maestro')
+      assert($.payment.validateCardNumber('5465531782847777'), 'nativa')
 
-      assert($.payment.validateCardNumber('6007220000000004'), 'forbrugsforeningen')
+      assert($.payment.validateCardNumber('6034880724565165'), 'tarshop')
+      assert($.payment.validateCardNumber('279957310758'), 'tarshop')
 
-      assert($.payment.validateCardNumber('5019717010103742'), 'dankort')
+      assert($.payment.validateCardNumber('6034937348103201'), 'cencosud')
+      
+      assert($.payment.validateCardNumber('6271702268025038'), 'cabal')
+      assert($.payment.validateCardNumber('5896577655366865'), 'cabal')
+      assert($.payment.validateCardNumber('6035221580711081'), 'cabal')
+      assert($.payment.validateCardNumber('6042013013318555'), 'cabal')
+      assert($.payment.validateCardNumber('6044002445876882'), 'cabal')
+
+      assert($.payment.validateCardNumber('5011051045705026'), 'argencard')
 
       assert($.payment.validateCardNumber('4111111111111111'), 'visa')
       assert($.payment.validateCardNumber('4012888888881881'), 'visa')
@@ -60,28 +73,25 @@ describe 'jquery.payment', ->
       assert($.payment.validateCardNumber('4462030000000000'), 'visa')
       assert($.payment.validateCardNumber('4484070000000000'), 'visa')
 
-      assert($.payment.validateCardNumber('5555555555554444'), 'mastercard')
-      assert($.payment.validateCardNumber('5454545454545454'), 'mastercard')
+      assert($.payment.validateCardNumber('5555555555554444'), 'master')
+      assert($.payment.validateCardNumber('5454545454545454'), 'master')
 
       assert($.payment.validateCardNumber('378282246310005'), 'amex')
       assert($.payment.validateCardNumber('371449635398431'), 'amex')
       assert($.payment.validateCardNumber('378734493671000'), 'amex')
 
-      assert($.payment.validateCardNumber('30569309025904'), 'dinersclub')
-      assert($.payment.validateCardNumber('38520000023237'), 'dinersclub')
-      assert($.payment.validateCardNumber('36700102000000'), 'dinersclub')
-      assert($.payment.validateCardNumber('36148900647913'), 'dinersclub')
+      assert($.payment.validateCardNumber('36700102000000'), 'diners')
+      assert($.payment.validateCardNumber('36148900647913'), 'diners')
 
-      assert($.payment.validateCardNumber('6011111111111117'), 'discover')
-      assert($.payment.validateCardNumber('6011000990139424'), 'discover')
+      assert($.payment.validateCardNumber('6062822241875177'), 'hipercard')
 
-      assert($.payment.validateCardNumber('6271136264806203568'), 'unionpay')
-      assert($.payment.validateCardNumber('6236265930072952775'), 'unionpay')
-      assert($.payment.validateCardNumber('6204679475679144515'), 'unionpay')
-      assert($.payment.validateCardNumber('6216657720782466507'), 'unionpay')
+      assert($.payment.validateCardNumber('6363685624067423'), 'elo')
+      assert($.payment.validateCardNumber('4389357440762745'), 'elo')
+      assert($.payment.validateCardNumber('5067268104457611'), 'elo')
+      assert($.payment.validateCardNumber('4576311327618218'), 'elo')
 
-      assert($.payment.validateCardNumber('3530111333300000'), 'jcb')
-      assert($.payment.validateCardNumber('3566002020360505'), 'jcb')
+      assert($.payment.validateCardNumber('5300321316680145'), 'melicard')
+      assert($.payment.validateCardNumber('5224991854532800'), 'melicard')
 
   describe 'Validating a CVC', ->
     it 'should fail if is empty', ->
@@ -223,42 +233,52 @@ describe 'jquery.payment', ->
       assert.equal topic, null
 
     it 'should return correct type for all test numbers', ->
-      assert.equal($.payment.cardType('4917300800000000'), 'visaelectron')
+      assert($.payment.cardType('4029174173871700'), 'naranja')
+      assert($.payment.cardType('4029188823230745'), 'naranja')
+      assert($.payment.cardType('5275718605203862'), 'naranja')
+      assert($.payment.cardType('5275720847313376'), 'naranja')
+      assert($.payment.cardType('5895625366531656'), 'naranja')
 
-      assert.equal($.payment.cardType('6759649826438453'), 'maestro')
+      assert($.payment.cardType('5465531782847777'), 'nativa')
 
-      assert.equal($.payment.cardType('6007220000000004'), 'forbrugsforeningen')
+      assert($.payment.cardType('6034880724565165'), 'tarshop')
+      assert($.payment.cardType('279957310758'), 'tarshop')
 
-      assert.equal($.payment.cardType('5019717010103742'), 'dankort')
+      assert($.payment.cardType('6034937348103201'), 'cencosud')
+      
+      assert($.payment.cardType('6271702268025038'), 'cabal')
+      assert($.payment.cardType('5896577655366865'), 'cabal')
+      assert($.payment.cardType('6035221580711081'), 'cabal')
+      assert($.payment.cardType('6042013013318555'), 'cabal')
+      assert($.payment.cardType('6044002445876882'), 'cabal')
 
-      assert.equal($.payment.cardType('4111111111111111'), 'visa')
-      assert.equal($.payment.cardType('4012888888881881'), 'visa')
-      assert.equal($.payment.cardType('4222222222222'), 'visa')
-      assert.equal($.payment.cardType('4462030000000000'), 'visa')
-      assert.equal($.payment.cardType('4484070000000000'), 'visa')
+      assert($.payment.cardType('5011051045705026'), 'argencard')
 
-      assert.equal($.payment.cardType('5555555555554444'), 'mastercard')
-      assert.equal($.payment.cardType('5454545454545454'), 'mastercard')
+      assert($.payment.cardType('4111111111111111'), 'visa')
+      assert($.payment.cardType('4012888888881881'), 'visa')
+      assert($.payment.cardType('4222222222222'), 'visa')
+      assert($.payment.cardType('4462030000000000'), 'visa')
+      assert($.payment.cardType('4484070000000000'), 'visa')
 
-      assert.equal($.payment.cardType('378282246310005'), 'amex')
-      assert.equal($.payment.cardType('371449635398431'), 'amex')
-      assert.equal($.payment.cardType('378734493671000'), 'amex')
+      assert($.payment.cardType('5555555555554444'), 'master')
+      assert($.payment.cardType('5454545454545454'), 'master')
 
-      assert.equal($.payment.cardType('30569309025904'), 'dinersclub')
-      assert.equal($.payment.cardType('38520000023237'), 'dinersclub')
-      assert.equal($.payment.cardType('36700102000000'), 'dinersclub')
-      assert.equal($.payment.cardType('36148900647913'), 'dinersclub')
+      assert($.payment.cardType('378282246310005'), 'amex')
+      assert($.payment.cardType('371449635398431'), 'amex')
+      assert($.payment.cardType('378734493671000'), 'amex')
 
-      assert.equal($.payment.cardType('6011111111111117'), 'discover')
-      assert.equal($.payment.cardType('6011000990139424'), 'discover')
+      assert($.payment.cardType('36700102000000'), 'diners')
+      assert($.payment.cardType('36148900647913'), 'diners')
 
-      assert.equal($.payment.cardType('6271136264806203568'), 'unionpay')
-      assert.equal($.payment.cardType('6236265930072952775'), 'unionpay')
-      assert.equal($.payment.cardType('6204679475679144515'), 'unionpay')
-      assert.equal($.payment.cardType('6216657720782466507'), 'unionpay')
+      assert($.payment.cardType('6062822241875177'), 'hipercard')
 
-      assert.equal($.payment.cardType('3530111333300000'), 'jcb')
-      assert.equal($.payment.cardType('3566002020360505'), 'jcb')
+      assert($.payment.cardType('6363685624067423'), 'elo')
+      assert($.payment.cardType('4389357440762745'), 'elo')
+      assert($.payment.cardType('5067268104457611'), 'elo')
+      assert($.payment.cardType('4576311327618218'), 'elo')
+
+      assert($.payment.cardType('5300321316680145'), 'melicard')
+      assert($.payment.cardType('5224991854532800'), 'melicard')
 
   describe 'formatCardNumber', ->
     it 'should format cc number correctly', (done) ->

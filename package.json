@@ -18,7 +18,8 @@
     "test": "cake test"
   },
   "dependencies": {
-    "jquery": ">=1.5"
+    "jquery": ">=1.5",
+    "coffee-script": "~1.8.0"
   },
   "devDependencies": {
     "cake": "~0.1",
