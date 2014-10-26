@@ -55,7 +55,7 @@ describe 'jquery.payment', ->
       assert($.payment.validateCardNumber('5465531782847777'), 'nativa')
 
       assert($.payment.validateCardNumber('6034880724565165'), 'tarshop')
-      assert($.payment.validateCardNumber('279957310758'), 'tarshop')
+      assert($.payment.validateCardNumber('2799573107582'), 'tarshop')
 
       assert($.payment.validateCardNumber('6034937348103201'), 'cencosud')
       
@@ -69,7 +69,6 @@ describe 'jquery.payment', ->
 
       assert($.payment.validateCardNumber('4111111111111111'), 'visa')
       assert($.payment.validateCardNumber('4012888888881881'), 'visa')
-      assert($.payment.validateCardNumber('4222222222222'), 'visa')
       assert($.payment.validateCardNumber('4462030000000000'), 'visa')
       assert($.payment.validateCardNumber('4484070000000000'), 'visa')
 
@@ -180,7 +179,7 @@ describe 'jquery.payment', ->
 
     it 'should validate a three digit number with card type amex', ->
       topic = $.payment.validateCardCVC('123', 'amex')
-      assert.equal topic, true
+      assert.equal topic, false
 
     it 'should validate a three digit number with card type other than amex', ->
       topic = $.payment.validateCardCVC('123', 'visa')
@@ -218,7 +217,7 @@ describe 'jquery.payment', ->
 
     it 'that begins with 5 should return MasterCard', ->
       topic = $.payment.cardType '5555555555554444'
-      assert.equal topic, 'mastercard'
+      assert.equal topic, 'master'
 
     it 'that begins with 34 should return American Express', ->
       topic = $.payment.cardType '3412121212121212'
