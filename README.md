@@ -228,3 +228,5 @@ You may have to turn off HTML5 validation (using the `novalidate` form attribute
 `Document Number Validator`.
 
 `Debit Card`(this is valid only for Mexico).
+
+`Prepaid Card`(this is valid only for Mexico).
