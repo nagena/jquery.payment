@@ -108,36 +108,36 @@ cards = [
 		luhn: true
 	} 
 	{
-			type: 'diners',
-			pattern: /^(30|31|35|36)/,
-			format: defaultFormat,
-			length: [14],
-			cvcLength: [3],
-			luhn: true
+		type: 'diners',
+		pattern: /^(30|31|35|36)/,
+		format: defaultFormat,
+		length: [14],
+		cvcLength: [3],
+		luhn: true
 	}
 	{
-			type: 'amex',
-			pattern: /^3/,
-			format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
-			length: [15],
-			cvcLength: [4],
-			luhn: true
+		type: 'amex',
+		pattern: /^3/,
+		format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
+		length: [15],
+		cvcLength: [4],
+		luhn: true
 	}
 	{
-			type: 'visa',
-			pattern: /^4/,
-			format: defaultFormat,
-			length: [16],
-			cvcLength: [3],
-			luhn: true
+		type: 'visa',
+		pattern: /^4/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
 	}
 	{
-			type: 'master',
-			pattern: /^5/,
-			format: defaultFormat,
-			length: [16],
-			cvcLength: [3],
-			luhn: true
+		type: 'master',
+		pattern: /^5/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
 	}
 ]
 
