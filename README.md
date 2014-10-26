@@ -1,4 +1,4 @@
-# jQuery.payment [![Build Status](https://travis-ci.org/stripe/jquery.payment.svg?branch=master)](https://travis-ci.org/stripe/jquery.payment)
+# jQuery.payment [![Build Status](https://travis-ci.org/axcoro/jquery.payment.svg?branch=master)](https://travis-ci.org/axcoro/jquery.payment)
 
 A general purpose library for building credit card forms, validating inputs and formatting numbers.
 
@@ -118,6 +118,7 @@ Example:
 ``` javascript
 $.payment.validateCardExpiry('05', '20'); //=> true
 $.payment.validateCardExpiry('05', '2015'); //=> true
+$.payment.validateCardExpiry('05', '2030'); //=> false
 $.payment.validateCardExpiry('05', '05'); //=> false
 ```
 
@@ -132,7 +133,7 @@ Example:
 
 ``` javascript
 $.payment.validateCardCVC('123'); //=> true
-$.payment.validateCardCVC('123', 'amex'); //=> true
+$.payment.validateCardCVC('123', 'amex'); //=> false
 $.payment.validateCardCVC('1234', 'amex'); //=> true
 $.payment.validateCardCVC('12344'); //=> false
 ```
@@ -174,6 +175,16 @@ $('input.cc-exp').payment('cardExpiryVal') //=> {month: 4, year: 2020}
 ```
 
 This function doesn't perform any validation of the month or year; use `$.payment.validateCardExpiry(month, year)` for that.
+
+### $.payment.validateCPF(number)
+Validates if a number is a valid CPF (Cadastro de Pessoas Físicas)
+
+```javascript
+$.payment.validateCPF('00000000000'); //=> 'false'
+$.payment.validateCPF('123'); //=> 'false'
+$.payment.validateCPF('50912814365'); //=> 'true'
+$.payment.validateCPF('509128143650'); //=> 'false'
+```
 
 ## Building
 
