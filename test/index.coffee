@@ -169,6 +169,10 @@ describe 'jquery.payment', ->
       topic = $.payment.validateCardExpiry '12', NaN
       assert.equal topic, false
 
+    it 'should fail if year is to far from now', ->
+      topic = $.payment.validateCardExpiry('12', '2033')
+      assert.equal topic, false
+
     it 'should support year shorthand', ->
       assert.equal $.payment.validateCardExpiry('05', '20'), true
 
@@ -189,7 +193,7 @@ describe 'jquery.payment', ->
       topic = $.payment.validateCardCVC('1234', 'visa')
       assert.equal topic, false
 
-    it 'should validate a four digit number with card type amex', ->
+    it 'should not validate a four digit number with card type amex', ->
       topic = $.payment.validateCardCVC('1234', 'amex')
       assert.equal topic, true
 
@@ -241,7 +245,7 @@ describe 'jquery.payment', ->
       assert($.payment.cardType('5465531782847777'), 'nativa')
 
       assert($.payment.cardType('6034880724565165'), 'tarshop')
-      assert($.payment.cardType('279957310758'), 'tarshop')
+      assert($.payment.cardType('279957310758')    , 'tarshop')
 
       assert($.payment.cardType('6034937348103201'), 'cencosud')
       
@@ -255,7 +259,7 @@ describe 'jquery.payment', ->
 
       assert($.payment.cardType('4111111111111111'), 'visa')
       assert($.payment.cardType('4012888888881881'), 'visa')
-      assert($.payment.cardType('4222222222222'), 'visa')
+      assert($.payment.cardType('4222222222222')   , 'visa')
       assert($.payment.cardType('4462030000000000'), 'visa')
       assert($.payment.cardType('4484070000000000'), 'visa')
 
@@ -339,3 +343,32 @@ describe 'jquery.payment', ->
       setTimeout ->
         assert.equal $expiry.val(), '1'
         done()
+	
+	describe 'validateCPF', ->
+		it 'sould not validate this numbers', (done) ->
+			assert.equal $.payment.validateCPF('123'), false
+			assert.equal $.payment.validateCPF('00000000000'), false
+			assert.equal $.payment.validateCPF('11111111111'), false
+			assert.equal $.payment.validateCPF('22222222222'), false
+			assert.equal $.payment.validateCPF('33333333333'), false
+			assert.equal $.payment.validateCPF('44444444444'), false
+			assert.equal $.payment.validateCPF('55555555555'), false
+			assert.equal $.payment.validateCPF('66666666666'), false
+			assert.equal $.payment.validateCPF('77777777777'), false
+			assert.equal $.payment.validateCPF('88888888888'), false
+			assert.equal $.payment.validateCPF('99999999999'), false
+			
+			assert.equal $.payment.validateCPF('12810502370'), false
+			assert.equal $.payment.validateCPF('12810202374'), false
+			
+			done()
+		
+		it 'sould not validate a cpf if lengh more than 11', (done) ->
+			assert.equal $.payment.validateCPF('509128143650'), false
+			done()
+
+		it 'sould validate this numbers', (done) ->
+			assert.equal $.payment.validateCPF('50912814365'), true
+			assert.equal $.payment.validateCPF('49625494723'), true
+			assert.equal $.payment.validateCPF('12810502374'), true
+			done()
