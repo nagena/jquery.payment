@@ -177,9 +177,9 @@ This function doesn't perform any validation of the month or year; use `$.paymen
 
 ## Coming Soon:
 
-Document Number Validator.
+`Document Number Validator`.
 
-Debit Card(this is valid only for Mexico).
+`Debit Card`(this is valid only for Mexico).
 
 ## Building
 
