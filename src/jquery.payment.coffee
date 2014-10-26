@@ -11,126 +11,134 @@ defaultFormat = /(\d{1,4})/g
 cards = [
   # Debit cards must come first, since they have more
   # specific patterns than their credit-card equivalents.
-  {
-      type: 'naranja',
-      pattern: /^((402917)|(402918)|(527571)|(527572))/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'naranja',
-      pattern: /^(589562)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'nativa',
-      pattern: /^(546553)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'tarshop',
-      pattern: /^(603488)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'tarshop',
-      pattern: /^(27995)/,
-      format: defaultFormat,
-      length: [13],
-      cvcLength: [0],
-      luhn: false
-  } 
-  {
-      type: 'cencosud',
-      pattern: /^(603493)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  } 
-  {
-      type: 'cabal',
-      pattern: /^((627170)|(589657)|(603522)|(604((20[1-9])|(2[1-9][0-9])|(3[0-9]{2})|(400))))/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  } 
-  {
-      type: 'argencard',
-      pattern: /^(501105)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'diners',
-      pattern: /^(36)/,
-      format: defaultFormat,
-      length: [14],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'hipercard',
-      pattern: /^(606282)/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'elo',
-      pattern: /^((636368)|(438935)|(506726)|(457631)|(401178)|(506727)|(506742)|(506741)|(506778)|(457632)|(506744)|(636297)|(627780))/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }
-  {
-      type: 'melicard',
-      pattern: /^((530032)|(522499))/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  }   
-  {
-      type: 'visa',
-      pattern: /^4/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  } 
-  {
-      type: 'master',
-      pattern: /^5/,
-      format: defaultFormat,
-      length: [16],
-      cvcLength: [3],
-      luhn: true
-  } 
-  {
-      type: 'amex',
-      pattern: /^3/,
-      format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
-      length: [15],
-      cvcLength: [4],
-      luhn: true
-  }
+	{
+		type: 'naranja',
+		pattern: /^((402917)|(402918)|(527571)|(527572))/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'naranja',
+		pattern: /^(589562)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'nativa',
+		pattern: /^(546553)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'tarshop',
+		pattern: /^(603488)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'tarshop',
+		pattern: /^(27995)/,
+		format: defaultFormat,
+		length: [13],
+		cvcLength: [0],
+		luhn: false
+	} 
+	{
+		type: 'cencosud',
+		pattern: /^(603493)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	} 
+	{
+		type: 'cabal',
+		pattern: /^((627170)|(589657)|(603522)|(604((20[1-9])|(2[1-9][0-9])|(3[0-9]{2})|(400))))/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	} 
+	{
+		type: 'argencard',
+		pattern: /^(501105)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'diners',
+		pattern: /(3646)|(3648)/,
+		format: defaultFormat,
+		length: [14],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'hipercard',
+		pattern: /^(606282)/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'elo',
+		pattern: /^((636368)|(438935)|(506726)|(457631)|(401178)|(506727)|(506742)|(506741)|(506778)|(457632)|(506744)|(636297)|(627780))/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	}
+	{
+		type: 'melicard',
+		pattern: /^((530032)|(522499))/,
+		format: defaultFormat,
+		length: [16],
+		cvcLength: [3],
+		luhn: true
+	} 
+	{
+			type: 'diners',
+			pattern: /^(30|31|35|36)/,
+			format: defaultFormat,
+			length: [14],
+			cvcLength: [3],
+			luhn: true
+	}
+	{
+			type: 'amex',
+			pattern: /^3/,
+			format: /(\d{1,4})(\d{1,6})?(\d{1,5})?/,
+			length: [15],
+			cvcLength: [4],
+			luhn: true
+	}
+	{
+			type: 'visa',
+			pattern: /^4/,
+			format: defaultFormat,
+			length: [16],
+			cvcLength: [3],
+			luhn: true
+	}
+	{
+			type: 'master',
+			pattern: /^5/,
+			format: defaultFormat,
+			length: [16],
+			cvcLength: [3],
+			luhn: true
+	}
 ]
 
 cardFromNumber = (num) ->
@@ -453,6 +461,8 @@ $.payment.validateCardExpiry = (month, year) ->
 
   return false unless year.length == 4
 
+  return false if +year > 2030
+
   expiry      = new Date(year, month)
   currentTime = new Date
 
@@ -516,3 +526,24 @@ $.payment.formatExpiry = (expiry) ->
     sep = ' / '
 
   return mon + sep + year
+	
+$.payment.validateCPF = (cpf) ->
+  cpf = (cpf + "").replace(/\.|-/g, "")
+  return false if cpf.match(/^(\d)\1{10}/) or cpf.length > 11
+  add = 0
+  i = 0
+  while i < 9
+    add += parseInt(cpf.charAt(i)) * (10 - i)
+    i++
+  rev = 11 - (add % 11)
+  rev = 0  if rev is 10 or rev is 11
+  return false if rev isnt parseInt(cpf.charAt(9))
+  add = 0
+  i = 0
+  while i < 10
+    add += parseInt(cpf.charAt(i)) * (11 - i)
+    i++
+  rev = 11 - (add % 11)
+  rev = 0  if rev is 10 or rev is 11
+  return false if rev isnt parseInt(cpf.charAt(10))
+  true
