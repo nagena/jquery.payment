@@ -176,8 +176,10 @@ $('input.cc-exp').payment('cardExpiryVal') //=> {month: 4, year: 2020}
 This function doesn't perform any validation of the month or year; use `$.payment.validateCardExpiry(month, year)` for that.
 
 ## Coming Soon:
-*Document Number Validator.
-*Debit Card.
+
+Document Number Validator.
+
+Debit Card(this is valid only for Mexico).
 
 ## Building
 
