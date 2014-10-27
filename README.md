@@ -225,7 +225,7 @@ You may have to turn off HTML5 validation (using the `novalidate` form attribute
 
 ## Coming Soon:
 
-`Document Number Validator`.
+`Document Number Validator`(For Argentina, Venezuela, Mexico and Colombia).
 
 `Debit Card`(this is valid only for Mexico).
 
